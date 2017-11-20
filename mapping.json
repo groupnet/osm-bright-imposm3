@@ -71,7 +71,7 @@
                 },
                 {
                     "args": {
-                        "values": [
+                        "ranks": [
                             "land",
                             "island",
                             "heath",
@@ -120,8 +120,9 @@
                             "pedestrian"
                         ]
                     },
-                    "type": "enumerate",
-                    "name": "z_order"
+                    "type": "zorder",
+                    "name": "z_order",
+                    "key": "z_order"
                 }
             ],
             "type": "polygon",
@@ -224,7 +225,12 @@
                     "type": "mapping_value",
                     "name": "type",
                     "key": null
-                }
+                },
+                {
+                    "type": "string",
+                    "name": "building:levels",
+                    "key": "building:levels"
+                }                
             ],
             "type": "polygon",
             "mapping": {
@@ -251,13 +257,23 @@
                     "key": "name"
                 },
                 {
+                    "type": "string",
+                    "name": "int_name",
+                    "key": "int_name"
+                },
+                {
+                    "type": "string",
+                    "name": "name:de",
+                    "key": "name:de"
+                },
+                {
                     "type": "mapping_value",
                     "name": "type",
                     "key": null
                 },
                 {
                     "args": {
-                        "values": [
+                        "ranks": [
                             "locality",
                             "suburb",
                             "hamlet",
@@ -270,8 +286,9 @@
                             "country"
                         ]
                     },
-                    "type": "enumerate",
-                    "name": "z_order"
+                    "type": "zorder",
+                    "name": "z_order",
+                    "key": "z_order"
                 },
                 {
                     "type": "integer",
@@ -698,6 +715,11 @@
                     "key": "oneway"
                 },
                 {
+                    "type": "integer",
+                    "name": "layer",
+                    "key": "layer"
+                },
+                {
                     "type": "string",
                     "name": "ref",
                     "key": "ref"
@@ -801,24 +823,39 @@
                     "type": "mapping_value",
                     "name": "type",
                     "key": null
-                },
-                {
-                    "type": "string",
-                    "name": "addr:street",
-                    "key": "addr:street"
-                },
-                {
-                    "type": "string",
-                    "name": "addr:postcode",
-                    "key": "addr:postcode"
-                },
-                {
-                    "type": "string",
-                    "name": "addr:city",
-                    "key": "addr:city"
                 }
             ],
             "type": "point",
+            "mapping": {
+                "addr:housenumber": [
+                    "__any__"
+                ]
+            }
+        },
+        "housenumbers_ways": {
+            "fields": [
+                {
+                    "type": "id",
+                    "name": "osm_id",
+                    "key": null
+                },
+                {
+                    "type": "geometry",
+                    "name": "geometry",
+                    "key": null
+                },
+                {
+                    "type": "string",
+                    "name": "name",
+                    "key": "name"
+                },
+                {
+                    "type": "mapping_value",
+                    "name": "type",
+                    "key": null
+                }
+            ],
+            "type": "polygon",
             "mapping": {
                 "addr:housenumber": [
                     "__any__"
