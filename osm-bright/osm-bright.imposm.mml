@@ -2,9 +2,9 @@
   "Layer": [
     {
       "Datasource": {
-        "dbname": "osm", 
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34", 
-        "file": "http://data.openstreetmapdata.com/simplified-land-polygons-complete-3857.zip", 
+        "source": "http://data.openstreetmapdata.com/simplified-land-polygons-complete-3857.zip", 
+        "file": "shp/simplified-land-polygons-complete-3857/simplified_land_polygons.shp", 
         "id": "land-low", 
         "type": "shape",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
@@ -18,7 +18,9 @@
     }, 
     {
       "Datasource": {
-        "file": "http://data.openstreetmapdata.com/land-polygons-split-3857.zip"
+        "source": "http://data.openstreetmapdata.com/land-polygons-split-3857.zip", 
+        "file": "shp/land-polygons-split-3857/land_polygons.shp",
+        "type": "shape"
       }, 
       "class": "", 
       "geometry": "polygon", 
