@@ -458,6 +458,37 @@
   }
 }
 
+/* ================================================================== */
+/* ADDRESSES
+/* ================================================================== */
+#housenumberinterpolated[zoom>=17] {
+	line-width: 1;
+	line-color: #bbbbbb;
+	line-dasharray: 4, 4;
+}
+#housenumber[zoom>=17] {
+  text-name:'[addr:housenumber]';
+  text-face-name:@sans;
+  text-size:9;
+  text-placement:interior;
+  text-min-distance: 1;
+  text-wrap-width: 0;
+  text-fill:@road_text;
+  text-halo-fill:@road_halo;
+  [zoom>=19] { text-size:10; }
+  [zoom>=20] { text-size:12; }
+}
+#housename[zoom>=18] {
+  text-name: '[addr:housename]';
+  text-face-name:@sans;
+  text-size: 8;
+  text-placement: interior;
+  text-wrap-width: 20;
+  text-fill: @poi_text;
+  [zoom>=19] { text-size: 9; }
+  [zoom>=20] { text-size:10; }
+}
+
 
 /* ================================================================== */
 /* TRAIN STATIONS
