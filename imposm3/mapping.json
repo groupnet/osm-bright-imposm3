@@ -821,7 +821,7 @@
                 },
                 {
                     "type": "mapping_value",
-                    "name": "type",
+                    "name": "housenumber",
                     "key": null
                 }
             ],
@@ -851,7 +851,7 @@
                 },
                 {
                     "type": "mapping_value",
-                    "name": "type",
+                    "name": "housenumber",
                     "key": null
                 }
             ],
