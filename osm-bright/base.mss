@@ -74,6 +74,21 @@
 // At the highest zoom levels, render buildings in fancy pseudo-3D.
 // Ordering polygons by their Y-position is necessary for this effect
 // so we use a separate layer that does this for us.
+/*
+#buildings[zoom>=17][type != 'hedge'] {
+  building-fill: @building;
+  building-height: 2;
+  [building_levels != null] {
+    [building_levels<20]{
+      building-height: '[building_levels]';
+    }
+    [building_levels>=20]{
+      building-height: 20;
+    }
+  }
+}
+*/
+
 #buildings[zoom>=17][type != 'hedge'] {
   building-fill:@building;
   building-height:1.25;

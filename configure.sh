@@ -9,5 +9,5 @@ dbname="osm"
 user="osm"
 password="osm"
 
-new_string="        \"host\": \"${host}\", \n        \"port\": \"${port}\", \n        \"dbname\": \"${dbname}\", \n        \"user\": \"${user}\", \n        \"password\": \"${password}\", "
-sed "s/        \"dbname\": \"osm\", /$new_string/" $mml_file_name
+new_string="        \"host\": \"${host}\", \n        \"port\": \"${port}\", \n        \"dbname\": \"${dbname}\", \n        \"user\": \"${user}\", \n        \"password\": \"${password}\", \n        \"type\": \"postgis\""
+sed "/\s*\"dbname\": \".*/d; s/\s*\"type\": \"postgis\"\s*/$new_string/" $mml_file_name

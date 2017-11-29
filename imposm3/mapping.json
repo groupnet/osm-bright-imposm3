@@ -1,5 +1,35 @@
 {
     "generalized_tables": {
+        "motorways_gen1": {
+            "source": "motorways",
+            "sql_filter": null,
+            "tolerance": 50.0
+        },
+        "motorways_gen0": {
+            "source": "motorways_gen1",
+            "sql_filter": null,
+            "tolerance": 200.0
+        },
+        "mainroads_gen1": {
+            "source": "mainroads",
+            "sql_filter": null,
+            "tolerance": 50.0
+        },
+        "mainroads_gen0": {
+            "source": "mainroads_gen1",
+            "sql_filter": null,
+            "tolerance": 200.0
+        },
+        "railways_gen1": {
+            "source": "railways",
+            "sql_filter": null,
+            "tolerance": 50.0
+        },
+        "railways_gen0": {
+            "source": "railways_gen1",
+            "sql_filter": null,
+            "tolerance": 200.0
+        },
         "waterareas_gen1": {
             "source": "waterareas",
             "sql_filter": "ST_Area(geometry)>50000.000000",
@@ -10,15 +40,15 @@
             "sql_filter": "ST_Area(geometry)>500000.000000",
             "tolerance": 200.0
         },
+        "roads_gen1": {
+            "source": "roads",
+            "sql_filter": null,
+            "tolerance": 50.0
+        },
         "roads_gen0": {
             "source": "roads_gen1",
             "sql_filter": null,
             "tolerance": 200.0
-        },
-        "roads_gen1": {
-            "source": "roads",
-            "sql_filter": "type IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link') OR class IN('railway')",
-            "tolerance": 50.0
         },
         "waterways_gen0": {
             "source": "waterways_gen1",
@@ -222,20 +252,31 @@
                     "key": "name"
                 },
                 {
+                    "type": "pseudoarea",
+                    "name": "area",
+                    "key": null
+                },
+                {
                     "type": "mapping_value",
                     "name": "type",
                     "key": null
                 },
                 {
-                    "type": "string",
-                    "name": "building:levels",
-                    "key": "building:levels"
-                }                
+                    "type": "integer",
+                    "name": "levels",
+                    "key": "levels"
+                }
             ],
             "type": "polygon",
             "mapping": {
                 "building": [
                     "__any__"
+                ],
+                "railway": [
+                    "station"
+                ],
+                "aeroway": [
+                    "terminal"
                 ]
             }
         },
@@ -382,6 +423,368 @@
                 "boundary": [
                     "administrative"
                 ]
+            }
+        },
+        "motorways": {
+            "fields": [
+                {
+                    "type": "id",
+                    "name": "osm_id",
+                    "key": null
+                },
+                {
+                    "type": "geometry",
+                    "name": "geometry",
+                    "key": null
+                },
+                {
+                    "type": "mapping_value",
+                    "name": "type",
+                    "key": null
+                },
+                {
+                    "type": "string",
+                    "name": "name",
+                    "key": "name"
+                },
+                {
+                    "type": "boolint",
+                    "name": "tunnel",
+                    "key": "tunnel"
+                },
+                {
+                    "type": "boolint",
+                    "name": "bridge",
+                    "key": "bridge"
+                },
+                {
+                    "type": "direction",
+                    "name": "oneway",
+                    "key": "oneway"
+                },
+                {
+                    "type": "integer",
+                    "name": "layer",
+                    "key": "layer"
+                },
+                {
+                    "type": "string",
+                    "name": "ref",
+                    "key": "ref"
+                },
+                {
+                    "type": "wayzorder",
+                    "name": "z_order",
+                    "key": "layer"
+                },
+                {
+                    "type": "string",
+                    "name": "access",
+                    "key": "access"
+                },
+                {
+                    "type": "string",
+                    "name": "service",
+                    "key": "service"
+                },
+                {
+                    "type": "mapping_key",
+                    "name": "class",
+                    "key": null
+                }
+            ],
+            "type": "linestring",
+            "filters": {
+                "exclude_tags": [
+                    ["area", "yes"]
+                ]
+            },
+            "mappings": {
+                "roads": {
+                    "mapping": {
+                        "highway": [
+                            "motorway",
+                            "motorway_link",
+                            "trunk",
+                            "trunk_link"
+                        ]
+                    }
+                }
+            }
+        },
+        "mainroads": {
+            "fields": [
+                {
+                    "type": "id",
+                    "name": "osm_id",
+                    "key": null
+                },
+                {
+                    "type": "geometry",
+                    "name": "geometry",
+                    "key": null
+                },
+                {
+                    "type": "mapping_value",
+                    "name": "type",
+                    "key": null
+                },
+                {
+                    "type": "string",
+                    "name": "name",
+                    "key": "name"
+                },
+                {
+                    "type": "boolint",
+                    "name": "tunnel",
+                    "key": "tunnel"
+                },
+                {
+                    "type": "boolint",
+                    "name": "bridge",
+                    "key": "bridge"
+                },
+                {
+                    "type": "direction",
+                    "name": "oneway",
+                    "key": "oneway"
+                },
+                {
+                    "type": "integer",
+                    "name": "layer",
+                    "key": "layer"
+                },
+                {
+                    "type": "string",
+                    "name": "ref",
+                    "key": "ref"
+                },
+                {
+                    "type": "wayzorder",
+                    "name": "z_order",
+                    "key": "layer"
+                },
+                {
+                    "type": "string",
+                    "name": "access",
+                    "key": "access"
+                },
+                {
+                    "type": "string",
+                    "name": "service",
+                    "key": "service"
+                },
+                {
+                    "type": "mapping_key",
+                    "name": "class",
+                    "key": null
+                }
+            ],
+            "type": "linestring",
+            "filters": {
+                "exclude_tags": [
+                    ["area", "yes"]
+                ]
+            },
+            "mappings": {
+                "roads": {
+                    "mapping": {
+                        "highway": [
+                            "primary",
+                            "primary_link",
+                            "secondary",
+                            "secondary_link",
+                            "tertiary",
+                            "tertiary_link"
+                        ]
+                    }
+                }
+            }
+        },
+        "minorroads": {
+            "fields": [
+                {
+                    "type": "id",
+                    "name": "osm_id",
+                    "key": null
+                },
+                {
+                    "type": "geometry",
+                    "name": "geometry",
+                    "key": null
+                },
+                {
+                    "type": "mapping_value",
+                    "name": "type",
+                    "key": null
+                },
+                {
+                    "type": "string",
+                    "name": "name",
+                    "key": "name"
+                },
+                {
+                    "type": "boolint",
+                    "name": "tunnel",
+                    "key": "tunnel"
+                },
+                {
+                    "type": "boolint",
+                    "name": "bridge",
+                    "key": "bridge"
+                },
+                {
+                    "type": "direction",
+                    "name": "oneway",
+                    "key": "oneway"
+                },
+                {
+                    "type": "integer",
+                    "name": "layer",
+                    "key": "layer"
+                },
+                {
+                    "type": "string",
+                    "name": "ref",
+                    "key": "ref"
+                },
+                {
+                    "type": "wayzorder",
+                    "name": "z_order",
+                    "key": "layer"
+                },
+                {
+                    "type": "string",
+                    "name": "access",
+                    "key": "access"
+                },
+                {
+                    "type": "string",
+                    "name": "service",
+                    "key": "service"
+                },
+                {
+                    "type": "mapping_key",
+                    "name": "class",
+                    "key": null
+                }
+            ],
+            "type": "linestring",
+            "filters": {
+                "exclude_tags": [
+                    ["area", "yes"]
+                ]
+            },
+            "mappings": {
+                "roads": {
+                    "mapping": {
+                        "man_made": [
+                            "pier",
+                            "groyne"
+                        ],
+                        "highway": [
+                            "road",
+                            "path",
+                            "track",
+                            "service",
+                            "footway",
+                            "bridleway",
+                            "cycleway",
+                            "steps",
+                            "pedestrian",
+                            "living_street",
+                            "unclassified",
+                            "residential",
+                            "raceway"
+                        ]
+                    }
+                }
+            }
+        },
+        "railways": {
+            "fields": [
+                {
+                    "type": "id",
+                    "name": "osm_id",
+                    "key": null
+                },
+                {
+                    "type": "geometry",
+                    "name": "geometry",
+                    "key": null
+                },
+                {
+                    "type": "mapping_value",
+                    "name": "type",
+                    "key": null
+                },
+                {
+                    "type": "string",
+                    "name": "name",
+                    "key": "name"
+                },
+                {
+                    "type": "boolint",
+                    "name": "tunnel",
+                    "key": "tunnel"
+                },
+                {
+                    "type": "boolint",
+                    "name": "bridge",
+                    "key": "bridge"
+                },
+                {
+                    "type": "direction",
+                    "name": "oneway",
+                    "key": "oneway"
+                },
+                {
+                    "type": "integer",
+                    "name": "layer",
+                    "key": "layer"
+                },
+                {
+                    "type": "wayzorder",
+                    "name": "z_order",
+                    "key": "layer"
+                },
+                {
+                    "type": "string",
+                    "name": "access",
+                    "key": "access"
+                },
+                {
+                    "type": "string",
+                    "name": "service",
+                    "key": "service"
+                },
+                {
+                    "type": "mapping_key",
+                    "name": "class",
+                    "key": null
+                }
+            ],
+            "type": "linestring",
+            "filters": {
+                "exclude_tags": [
+                    ["area", "yes"]
+                ]
+            },
+            "mappings": {
+                "roads": {
+                    "mapping": {
+                        "railway": [
+                            "rail",
+                            "tram",
+                            "light_rail",
+                            "subway",
+                            "narrow_gauge",
+                            "preserved",
+                            "funicular",
+                            "monorail"
+                        ]
+                    }
+                }
             }
         },
         "aeroways": {
@@ -821,7 +1224,7 @@
                 },
                 {
                     "type": "mapping_value",
-                    "name": "housenumber",
+                    "name": "addr:housenumber",
                     "key": null
                 }
             ],
@@ -851,7 +1254,7 @@
                 },
                 {
                     "type": "mapping_value",
-                    "name": "housenumber",
+                    "name": "addr:housenumber",
                     "key": null
                 }
             ],
