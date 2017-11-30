@@ -1,0 +1,5 @@
+{
+    "cachedir": "/var/cache/imposm3",
+    "mapping": "/data/maps/osm-bright-imposm3/imposm3/mapping.json",
+    "connection": "postgis://osm:osm@localhost:5432/osm"
+}
