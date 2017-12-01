@@ -175,12 +175,16 @@ Map { background-color: @water; }
 /* ================================================================== */
 
 
-#admin[admin_level=2][zoom>1] {
+#admin0-boundary-lines[zoom<=4] {
   line-color:@admin_2;
-  line-width:0.5;
-  [zoom=2] { line-opacity: 0.25; }
-  [zoom=3] { line-width:1; line-opacity: 0.3; }
-  [zoom=4] { line-width:1; line-opacity: 0.4; }
+  line-width:1;
+  line-opacity: 0.4;
+}
+
+#admin[admin_level=2][zoom>4] {
+  line-color:@admin_2;
+  line-width:1;
+  line-opacity: 0.4;
 }
 
 #admin[admin_level=4][zoom>6] {

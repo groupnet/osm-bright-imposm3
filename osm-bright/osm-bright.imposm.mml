@@ -90,6 +90,17 @@
     }, 
     {
       "Datasource": {
+        "source": "http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_boundary_lines_land.zip", 
+        "file": "shp/ne_10m_admin_0_boundary_lines_land/ne_10m_admin_0_boundary_lines_land.shp",
+        "type": "shape"
+      }, 
+      "class": "", 
+      "geometry": "linestring", 
+      "id": "admin0-boundary-lines", 
+      "srs": "+proj=longlat +datum=WGS84 +no_defs"
+    }, 
+    {
+      "Datasource": {
         "dbname": "osm", 
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34", 
         "geometry_field": "geometry", 

@@ -1226,11 +1226,19 @@
                     "type": "mapping_value",
                     "name": "addr:housenumber",
                     "key": null
+                },
+                {
+                    "type": "mapping_value",
+                    "name": "addr:housename",
+                    "key": null
                 }
             ],
             "type": "point",
             "mapping": {
                 "addr:housenumber": [
+                    "__any__"
+                ],
+                "addr:housename": [
                     "__any__"
                 ]
             }
@@ -1256,11 +1264,19 @@
                     "type": "mapping_value",
                     "name": "addr:housenumber",
                     "key": null
+                },
+                {
+                    "type": "mapping_value",
+                    "name": "addr:housename",
+                    "key": null
                 }
             ],
             "type": "polygon",
             "mapping": {
                 "addr:housenumber": [
+                    "__any__"
+                ],
+                "addr:housename": [
                     "__any__"
                 ]
             }
