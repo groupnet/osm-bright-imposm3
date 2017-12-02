@@ -177,8 +177,8 @@ Map { background-color: @water; }
 
 #admin0-boundary-lines[zoom<=4] {
   line-color:@admin_2;
-  line-width:1;
-  line-opacity: 0.4;
+  line-width:2;
+  line-opacity: 0.2;
 }
 
 #admin[admin_level=2][zoom>4] {
@@ -190,14 +190,14 @@ Map { background-color: @water; }
 #admin[admin_level=4][zoom>6] {
   line-color:@admin_2;
   line-width:1;
-  line-opacity: 0.5;
+  line-opacity: 0.6;
 }
 
 #admin[admin_level=6][zoom>9] {
   line-color:@admin_2;
   line-dasharray:4,2;
   line-width:1;
-  line-opacity: 0.6;
+  line-opacity: 0.8;
 }
 
 
