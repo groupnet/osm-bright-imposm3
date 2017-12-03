@@ -177,27 +177,36 @@ Map { background-color: @water; }
 
 #admin0-boundary-lines[zoom<=4] {
   line-color:@admin_2;
-  line-width:2;
-  line-opacity: 0.2;
+  line-width:1;
+  line-opacity: 0.5;
+  [zoom=1] {
+    line-width:0.2;
+  }
+  [zoom=2] {
+    line-width:0.3;
+  }
+  [zoom=3] {
+    line-width:0.4;
+  }
 }
 
 #admin[admin_level=2][zoom>4] {
   line-color:@admin_2;
   line-width:1;
-  line-opacity: 0.4;
-}
-
-#admin[admin_level=4][zoom>6] {
-  line-color:@admin_2;
-  line-width:1;
   line-opacity: 0.6;
 }
 
+#admin[admin_level=4][zoom>6] {
+  line-color:@admin_4;
+  line-width:1;
+  line-opacity: 0.4;
+}
+
 #admin[admin_level=6][zoom>9] {
-  line-color:@admin_2;
+  line-color:@admin_6;
   line-dasharray:4,2;
   line-width:1;
-  line-opacity: 0.8;
+  line-opacity: 0.2;
 }
 
 
